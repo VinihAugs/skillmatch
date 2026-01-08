@@ -20,7 +20,7 @@ export const analyzeMatch = async (
     ${resume}
     `,
     config: {
-      systemInstruction: "Você é um especialista em Recrutamento e Seleção de alto nível. Analise criticamente currículos contra descrições de vagas. Seja honesto, direto e construtivo. Retorne sempre em formato JSON.",
+      systemInstruction: "Você é um especialista em Recrutamento e Seleção e Personal Branding. Analise o currículo contra a vaga. Além da análise técnica, gere um post de LinkedIn persuasivo para o candidato e uma query de busca de vagas ideal (ex: 'Desenvolvedor React Senior remoto'). Retorne sempre em formato JSON.",
       responseMimeType: "application/json",
       responseSchema: {
         type: Type.OBJECT,
@@ -43,11 +43,19 @@ export const analyzeMatch = async (
           interviewTips: {
             type: Type.ARRAY,
             items: { type: Type.STRING },
-            description: "Dicas de como se portar ou o que enfatizar em uma entrevista para esta posição."
+            description: "Dicas de como se portar ou o que enfatizar em uma entrevista."
+          },
+          linkedinPost: {
+            type: Type.STRING,
+            description: "Um rascunho de post para o LinkedIn que destaque as habilidades do candidato para sua rede."
+          },
+          jobSearchQuery: {
+            type: Type.STRING,
+            description: "Uma string otimizada para busca de vagas no LinkedIn (ex: Cargo + Principais Skills)."
           }
         },
-        required: ["strengths", "weaknesses", "improvementPlan", "interviewTips"],
-        propertyOrdering: ["strengths", "weaknesses", "improvementPlan", "interviewTips"]
+        required: ["strengths", "weaknesses", "improvementPlan", "interviewTips", "linkedinPost", "jobSearchQuery"],
+        propertyOrdering: ["strengths", "weaknesses", "improvementPlan", "interviewTips", "linkedinPost", "jobSearchQuery"]
       }
     }
   });

@@ -18,4 +18,6 @@ export interface AnalysisResult {
   weaknesses: string[];
   improvementPlan: string[];
   interviewTips: string[];
+  linkedinPost: string;
+  jobSearchQuery: string;
 }
