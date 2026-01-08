@@ -1,0 +1,5 @@
+{
+  "name": "MatchSkill",
+  "description": "Uma plataforma inteligente para análise de compatibilidade entre currículos e descrições de vagas utilizando a IA Gemini.",
+  "requestFramePermissions": []
+}
